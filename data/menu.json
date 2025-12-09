@@ -1,0 +1,46 @@
+{
+    "platos": [
+        {
+            "nombre": "Casado con carne",
+            "precio": 4000,
+            "descripcion": "Carne mechada.",
+            "imagen": "img/casadocarne.jpg",
+            "categoria": "Especialidades"
+        },
+        {
+            "nombre": "Olla de carne",
+            "precio": 3500,
+            "descripcion": "Deliciosa sopa a la leña.",
+            "imagen": "img/sopa.jpg",
+            "categoria": "Sopas"
+        },
+        {
+            "nombre": "Ceviche de pescado",
+            "precio": 3000,
+            "descripcion": "Especial para comer con caldosa o difrutarlo de tu manera favorita.",
+            "imagen": "img/ceviche.jpg",
+            "categoria": "Mariscos"
+        },
+        {
+            "nombre": "Chilasquilas",
+            "precio": 1500,
+            "descripcion": "Jugosa carne con queso, tocino y papas fritas.",
+            "imagen": "img/chilasquila.jpg",
+            "categoria": "Comida Rápida"
+        },
+        {
+            "nombre": "Tamal Asado",
+            "precio": 5200,
+            "descripcion": "Delicioso Tamal Artesanal a las brasas",
+            "imagen": "img/tamal.jpg",
+            "categoria": "Otros"
+        },
+        {
+            "nombre": "Empanada arreglada",
+            "precio": 1500,
+            "descripcion": "Escoge tu relleno preferido",
+            "imagen": "img/empanada arreglada2.jpg",
+            "categoria": "Otros"
+        }
+    ]
+}
