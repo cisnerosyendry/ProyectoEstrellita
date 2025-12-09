@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería | Estrellita y su cuhara</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Header y Footer -->
+    <script src="js/header.js" defer></script>
+    <script src="js/footer.js" defer></script>
+
+    <style>
+        .gallery-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<mi-header></mi-header>
+
+<section class="container py-5">
+    <h1 class="text-center mb-4">Galería del Restaurante</h1>
+    <p class="text-center mb-5">Una selección de nuestros mejores momentos, platillos y espacios.</p>
+
+    <!-- GRID DE IMÁGENES -->
+    <div class="row g-4">
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="img/chicharron.jpg" class="gallery-img" 
+                 data-bs-toggle="modal" data-bs-target="#imageModal" onclick="mostrarImagen(this.src)">
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="img/arreglado.jpg" class="gallery-img"
+                 data-bs-toggle="modal" data-bs-target="#imageModal" onclick="mostrarImagen(this.src)">
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="img/gente2.jpg" class="gallery-img"
+                 data-bs-toggle="modal" data-bs-target="#imageModal" onclick="mostrarImagen(this.src)">
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="img/lugar2.jpg" class="gallery-img"
+                 data-bs-toggle="modal" data-bs-target="#imageModal" onclick="mostrarImagen(this.src)">
+        </div>
+
+        <!-- Más imágenes -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="img/lugar3.jpg" class="gallery-img"
+                 data-bs-toggle="modal" data-bs-target="#imageModal" onclick="mostrarImagen(this.src)">
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <img src="img/gente1.jpg" class="gallery-img"
+                 data-bs-toggle="modal" data-bs-target="#imageModal" onclick="mostrarImagen(this.src)">
+        </div>
+
+        <!-- VIDEO PROMOCIONAL -->
+        <div class="col-12 col-md-6 mx-auto">
+            <div class="ratio ratio-16x9">
+                <video controls class="rounded shadow">
+                    <source src="img/haciendo tortillas.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+            </div>
+            <p class="text-center mt-2 fw-bold">Video Emprendimiento</p>
+        </div>
+
+    </div>
+</section>
+
+<mi-footer></mi-footer>
+
+<!-- MODAL LIGHTBOX -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark">
+            <div class="modal-body text-center">
+                <img id="modalImage" class="modal-img">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function mostrarImagen(src) {
+        document.getElementById("modalImage").src = src;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación | Estrellita y su cuchara</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Leaflet CSS y JS (MAPAS GRATIS) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Header / Footer -->
+    <script src="js/header.js" defer></script>
+    <script src="js/footer.js" defer></script>
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <mi-header></mi-header>
+
+    <section class="container py-5">
+        <h1 class="text-center mb-4">Nuestra Ubicación</h1>
+        <p class="text-center">Aquí puedes ver cómo llegar desde tu ubicación actual.</p>
+
+        <div id="map"></div>
+
+        <div class="mt-4 text-center">
+            <p><strong>Dirección del restaurante:</strong> Turrubares, Costa Rica</p>
+        </div>
+    </section>
+
+    <mi-footer></mi-footer>
+
+    <script>
+    // 🟢 Coordenadas reales del restaurante
+    const restaurante = [9.8485751, -84.5263671];
+
+    // Crear mapa centrado en el restaurante
+    const map = L.map('map').setView(restaurante, 16);
+
+    // Cargar mapa gratuito de OSM
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marcador del restaurante
+    L.marker(restaurante)
+        .addTo(map)
+        .bindPopup("<b>Estrellita y su cuchara</b><br>Restaurante")
+        .openPopup();
+
+    // 🟡 Intentar obtener ubicación del usuario (sin mover el mapa)
+    map.locate({ setView: false, maxZoom: 16 });
+
+    map.on('locationfound', function (e) {
+        // marcador del usuario
+        L.marker(e.latlng)
+            .addTo(map)
+            .bindPopup("Tu ubicación actual");
+
+        // Dibujar línea desde usuario hasta restaurante
+        L.polyline([e.latlng, restaurante], { color: 'red' }).addTo(map);
+    });
+
+    map.on('locationerror', function () {
+        alert("No se pudo obtener tu ubicación. Activa el GPS o permisos de ubicación.");
+    });
+</script>
+
+</body>
+</html>
